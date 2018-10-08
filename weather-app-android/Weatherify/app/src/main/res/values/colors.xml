@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+    <color name="stickyHeader">#FAFAFA</color>
+    <color name="divider">#F1F1F3</color>
+
+    <color name="mainText">#4a4a4a</color>
+    <color name="mainScreenBlueText">#00A6FD</color>
+    <color name="mainTextLight">#9B9B9B</color>
+    <color name="mainTextLightPressed">#809B9B9B</color>
+    <color name="mainScreenWeeklyAbbreviation">#34495E</color>
+    <color name="mainScreenTimeArcText">#F5A623</color>
+    <color name="mainScreenBackground">#FFFFFF</color>
+    <color name="mainScreenHourlyNextDayBackground">#28D8D8D8</color>
+    <color name="mainScreenHourlyNextDayText">#A6A6A6</color>
+
+    <color name="menuScreenHotTemperature">#F5B041</color>
+    <color name="menuScreenColdTemperature">#01579B</color>
+    <color name="menuScreenNormalTemperature">#D5F5E3</color>
+    <color name="menuScreenBackground">#00A6FD</color>
+
+    <color name="enableLocationsTitle">#F5B041</color>
+    <color name="enableLocationsButtonBackground">#00A6FD</color>
+    <color name="enableLocationsButtonBackgroundPressed">#5000A6FD</color>
+    <color name="enableLocationsNoInternetBackground">#FFFFFF</color>
+
+    <color name="addLocationResultItemsDivider">#50C0FA</color>
+    <color name="addLocationItemsBackground">#1aaefb</color>
+
+    <color name="favouritesTextFieldText">@android:color/white</color>
+    <color name="favouritesScreenStroke">#30B6FD</color>
+    <color name="favouritesItemTextViewColor">@android:color/white</color>
+    <color name="favouritesItemTimeViewColor">#7DFFFFFF</color>
+    <color name="favouritesItemBackgroundGradientStart">#0000A6FD</color>
+    <color name="favouritesItemBackgroundGradientEnd">#21D5F5E3</color>
+
+    <color name="locationsPrimaryDarkColor">#00A6FD</color>
+    <color name="locationsPrimaryColor">#30B6FD</color>
+    <color name="colorFavouritesLowTemperature">#01579B</color>
+    <color name="colorFavouritesHighTemperature">#FFD500</color>
+    <color name="colorFavouritesMidTemperature">#C0FFDB</color>
+
+    <color name="settingsSwitchActiveBg">#30B6FD</color>
+    <color name="settingsSwitchActiveText">@android:color/white</color>
+    <color name="settingsSwitchInactiveBg">@android:color/white</color>
+    <color name="settingsSwitchInactiveText">#00A6FD</color>
+    <color name="settingsSwitchSection">#FAFAFA</color>
+    <color name="settingsTextBlue">#30B6FD</color>
+    <color name="settingsSwitchLabelText">#9B9B9B</color>
+    <color name="colorSettingsButtonText">#4A4A4A</color>
+    <color name="settingsRippleBlue">#00A6FD</color>
+    <color name="settingsBorder">#F1F1F3</color>
+    <color name="settingsTextVersion">#DAD7DC</color>
+
+    <color name="colorSunrise">#FFFFD500</color>
+    <color name="colorSundown">#FFF5B041</color>
+    <color name="colorMoonrise">#FF01579B</color>
+    <color name="colorMoondown">#0001579B</color>
+
+    <color name="refreshSun">#F5B041</color>
+    <color name="refreshWave">#1aaefb</color>
+    <color name="refreshHeaderBottomLine">#F1F1F3</color>
+</resources>

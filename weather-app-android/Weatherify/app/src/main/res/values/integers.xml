@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="lowTemperature">8</integer>
+    <integer name="highTemperature">16</integer>
+
+    <integer name="revealConcealAnimationDuration">500</integer>
+
+    <integer name="mainScreenSummaryMaxLines">10</integer>
+    <integer name="single_line_text">1</integer>
+
+    <integer name="refreshSunRotationDuration">3000</integer>
+    <integer name="refreshWaveDuration">1000</integer>
+
+    <integer name="sunExitAnimationsDuration">500</integer>
+</resources>

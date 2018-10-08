@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">Weatherify</string>
+
+    <string name="developer_console_license_key">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6QXQA6lJzL2yig1JqW7LA+LQmBxWvj9V7jralCOxFogqQtqueSraQolv9jYzllOeteSB3hLSg5RWKoaT8kVAaw6VwFVn1FhadJmcPlkoG6+MY6kn6NzvONvkkFmdwYyju8NgyRiVAjAYp27hx4vuhJu3aiu5KrKgytw62y2nBpjNCpuacYl6TKp9uEOhQwWHZUaFlpL/L8wdreFLOWqwDXxIIucPXD3cj5EGRpHjMIXDOgU9CWjOtSt3+TFMl0X3PyUuAsT4A5SXe1JDnWvMRefrbgid9IOGT+IxUdl2j9mSZJNzzMOPHIUXist+LYNlWkLbbZ80A76peFACVI3iXQIDAQAB</string>
+
+    <string name="dark_sky_forecast_api_key">afb4fc651d5caf76160bb842dd502173</string>
+    <string name="request_base_url">https://api.forecast.io/forecast/</string>
+    <string name="location_param">%1$.7f,%2$.7f</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+        eu elit dapibus, porttitor velit ac, fringilla mi. Etiam volutpat convallis dapibus. Nullam
+        et malesuada lectus. Donec quis gravida mauris. Donec eu orci mattis, pharetra justo eu,
+        porttitor purus. Morbi quis ipsum ac tortor tristique accumsan eget et enim. Praesent sit
+        amet risus eros. Mauris sed mauris augue. Etiam ligula enim, luctus non elit ut, tincidunt
+        suscipit nunc. Aliquam quis porta lacus, vel hendrerit odio. In nunc neque, iaculis quis
+        lorem non, mollis varius nisi.
+    </string>
+
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sundown</string>
+    <string name="max">MAX</string>
+    <string name="min">MIN</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+
+    <string name="humidity_label">Humidity</string>
+    <string name="precipitation_label">Precipitation</string>
+    <string name="visibility_label">Visibility</string>
+    <string name="wind_label">Wind</string>
+    <string name="pressure_label">Pressure</string>
+    <string name="cloud_cover_label">Cloud cover</string>
+
+    <string name="miles_per_hour">mph</string>
+    <string name="meters_per_second">m/s</string>
+    <string name="kilometers_per_hour">km/h</string>
+    <string name="knots">knots</string>
+
+    <string name="celsius">C</string>
+    <string name="fahrenheit">F</string>
+
+    <string name="degree_circle">\u00B0</string>
+    <string name="up_arrow">\u2191</string>
+
+    <string name="hourly_header">Forecast daily</string>
+    <string name="daily_header">Forecast weekly</string>
+    <string name="details_header">Details</string>
+
+    <string name="north">N</string>
+    <string name="north_east">NE</string>
+    <string name="east">E</string>
+    <string name="south_east">SE</string>
+    <string name="south">S</string>
+    <string name="south_west">SW</string>
+    <string name="west">W</string>
+    <string name="north_west">NW</string>
+
+    <string name="apparent_temperature">Feels like %1$d\u00B0</string>
+    <string name="current_temperature">%1$d\u00B0</string>
+    <string name="max_min_temperature">MAX %1$d\u00B0/ MIN %2$d\u00B0</string>
+    <string name="hourly_time">%1$s:00</string>
+    <string name="hourly_temperature">%1$d\u00B0</string>
+    <string name="daily_precipitation">%1$d%%</string>
+    <string name="temperatureSeperator">/</string>
+    <string name="daily_min_max">%1$d\u00B0/%2$d\u00B0</string>
+    <string name="daily_max">%1$d\u00B0/</string>
+    <string name="daily_min">%1$d\u00B0</string>
+    <string name="humidity">%1$d%%</string>
+    <string name="precipitation">%1$d%%</string>
+    <string name="visibility">%1$.1f km</string>
+    <string name="wind">%1$s %2$.1f %3$s</string>
+    <string name="pressure">%1$.1f mb</string>
+    <string name="cloud_cover">%1$d%%</string>
+
+    <string name="enable_locations_title">Hey,\nWhere are you?</string>
+    <string name="enable_locations_subtitle">We can\'t find you…</string>
+    <string name="enable_locations_click_text"><u>Enable your location from Settings</u></string>
+    <string name="enable_locations_button">Go to favourites to Add a location +</string>
+
+    <string name="or">or</string>
+    <string name="permission_location_rationale">Lorem ipsum</string>
+
+    <string name="add_location_hint">Enter town or city</string>
+    <string name="no_locations_found">No locations found</string>
+    <string name="add_location_title">Add location</string>
+
+
+    <string name="favourites_screen_empty_state_label">You haven’t added any Favourite locations yet.</string>
+    <string name="favourites_current_temperature">%d\u00B0</string>
+    <string name="favourites_daily_temperature">%1$d\u00B0/%2$d\u00B0</string>
+    <string name="favorites__items_label">favourite locations</string>
+
+    <string name="unknown_current_location">unknown location</string>
+
+    <string name="no_internet_connection_title">No internet connection</string>
+    <string name="no_internet_connection_subtitle">Please connect to a network to \n continue</string>
+
+    <string name="settingsActivityTitle">SETTINGS</string>
+    <string name="settingsUnits">Units</string>
+    <string name="settingsTemperature">Temperature</string>
+    <string name="settingsUnitSwitchTemperature">\u00B0%1$s</string>
+    <string name="settingsWind">Wind</string>
+
+    <string name="settingsRemoveAds">Remove Ads</string>
+    <string name="settingsRestorePurchases">Restore purchases</string>
+
+    <string name="labeledVersion">Version: %1$s</string>
+
+    <string name="add_location_without_internet_toast">Needs internet connection</string>
+
+    <string name="empty_state">-</string>
+    <string name="enable_network_service">Enable network service</string>
+
+    <string-array name="billing_responses">
+        <item>OK</item>
+        <item>Purchase cancelled</item>
+        <item>Network connection is down</item>
+        <item>Unsupported purchase type</item>
+        <item>Requested item is not available for purchase</item>
+        <item>Developer problem</item>
+        <item>Billing API failure</item>
+        <item>Item is already owned</item>
+        <item>Can\'t consume item that is not owned</item>
+    </string-array>
+
+    <string name="refreshSvgPath">M1,81 C1,81 102.258579,81 152.387868,81 C164.095449,81 171.012415,94.25 188.515915,94.25 C206.019415,94.25 211.761415,81 223.386818,81 C274.924545,81 375,81 375,81</string>
+    <string name="update_forecast_text">Update information...</string>
+</resources>

@@ -1,0 +1,67 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.LightStatusBar">
+        <item name="colorPrimary">@color/locationsPrimaryColor</item>
+        <item name="colorPrimaryDark">@color/locationsPrimaryDarkColor</item>
+    </style>
+
+    <style name="AppTheme.Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.LightStatusBar.Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.EnableLocationsScreen">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="mainScreenText">
+        <item name="android:maxLines">@integer/single_line_text</item>
+        <item name="android:textColor">@color/mainText</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="mainScreenText.Big">
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="mainScreenText.Big.Summary">
+        <item name="android:maxLines">@integer/mainScreenSummaryMaxLines</item>
+    </style>
+
+    <style name="mainScreenText.Light">
+        <item name="android:textColor">@color/mainTextLight</item>
+    </style>
+
+    <style name="mainScreenText.Headers">
+        <item name="android:textColor">@color/mainScreenBlueText</item>
+    </style>
+
+    <style name="mainScreenText.Xsmall">
+        <item name="android:maxLines">@integer/single_line_text</item>
+        <item name="android:textColor">@color/mainScreenHourlyNextDayText</item>
+        <item name="android:textSize">@dimen/hourly_next_day_text_size</item>
+    </style>
+
+    <style name="detailsGridItems">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <!--Update design-->
+    </style>
+</resources>

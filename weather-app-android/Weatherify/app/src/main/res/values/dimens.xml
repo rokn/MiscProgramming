@@ -1,0 +1,32 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="normal_text_size">15sp</dimen>
+    <dimen name="big_text_size">16sp</dimen>
+
+    <dimen name="hourly_next_day_text_size">8sp</dimen>
+    <dimen name="daily_precipitation_text_size">8sp</dimen>
+    <dimen name="current_location_drawable_padding">2dp</dimen>
+    <dimen name="current_temperature_vertical_margin">6dp</dimen>
+    <dimen name="current_feeling_vertical_margin">12dp</dimen>
+    <dimen name="detail_item_icon_end_margin">10dp</dimen>
+    <dimen name="hourly_item_layout_horizontal_padding">9dp</dimen>
+
+    <dimen name="add_location_result_divider_start_margin">9dp</dimen>
+    <dimen name="add_location_result_divider_end_margin">1dp</dimen>
+    <dimen name="add_location_result_item_padding_start">10dp</dimen>
+
+    <dimen name="text_bar_top_margin">80dp</dimen>
+    <dimen name="top_buttons_top_padding">25dp</dimen>
+    <dimen name="top_buttons_side_padding">16dp</dimen>
+    <dimen name="top_buttons_image_size">25dp</dimen>
+    <dimen name="wind_rotating_width">30dp</dimen>
+    <dimen name="wind_rotating_height">30dp</dimen>
+
+    <dimen name="hourly_time_text_size">14sp</dimen>
+    <dimen name="favouritesNameFontSize">19sp</dimen>
+    <dimen name="favouritesTempFontSize">40sp</dimen>
+    <dimen name="favouritesTimeFontSize">14sp</dimen>
+</resources>

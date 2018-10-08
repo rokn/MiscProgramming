@@ -7,7 +7,7 @@ var Tree = {
 	branchLength:80
 };
 var selectedAngle, selectedOffset;
-var minLength = 5;
+var minLength = 1;
 var windGenerator;
 var windStrength;
 

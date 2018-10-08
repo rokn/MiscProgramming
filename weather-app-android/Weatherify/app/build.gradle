@@ -1,0 +1,114 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.3'
+
+    defaultConfig {
+        applicationId "com.test.weatherify.android"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 4
+        versionName "1.2.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    applicationVariants.all { variant ->
+        variant.resValue "string", "versionName", variant.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    // Android Support
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-dynamic-animation:25.3.1'
+    compile 'com.android.support:gridlayout-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+
+    // Play Services
+    compile 'com.google.android.gms:play-services-gcm:11.0.2'
+    compile 'com.google.android.gms:play-services-location:11.0.2'
+    compile 'com.google.android.gms:play-services-places:11.0.2'
+
+    //Ads
+    compile 'com.google.firebase:firebase-ads:11.0.2'
+
+    // Views
+    compile 'se.emilsjolander:StickyScrollViewItems:1.1.0'
+    compile project(':androidtoggleswitch')
+    compile 'com.balysv:material-ripple:1.0.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // PullToRefresh
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.gelitenight.waveview:waveview:1.0.0'
+
+    // Animations
+    compile 'com.facebook.rebound:rebound:0.3.8'
+
+    // Requests
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
+
+    // Dependency Injection
+    compile 'com.google.dagger:dagger:2.5'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    // Custom Fonts
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    // Database
+    compile "com.j256.ormlite:ormlite-core:5.0"
+    compile "com.j256.ormlite:ormlite-android:5.0"
+
+    // Events
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //Permissions
+    compile 'com.github.hotchemi:permissionsdispatcher:2.4.0'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
+
+    // Tools
+    compile('org.jscience:jscience:4.3.1') {
+        exclude group: 'org.javolution', module: 'javolution'
+    }
+    compile 'net.danlew:android.joda:2.9.9'
+
+    // In-app billing
+    compile 'com.anjlab.android.iab.v3:library:1.0.36'
+
+    // Lite weight stream API
+    compile 'com.annimon:stream:1.1.7'
+
+    // Multidex support
+    compile 'com.android.support:multidex:1.0.1'
+}
+
+apply plugin: 'com.google.gms.google-services'

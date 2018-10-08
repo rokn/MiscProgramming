@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.databinding.ObservableInt"/>
+
+        <import type="android.view.View"/>
+
+        <import type="com.appolica.weatherify.android.utils.StringUtils"/>
+
+        <variable
+            name="location"
+            type="com.appolica.weatherify.android.model.ForecastLocation"/>
+
+        <variable
+            name="swipeListener"
+            type="com.appolica.weatherify.android.ui.view.swiperemovervlayout.SwipeListener"/>
+
+        <variable
+            name="preferredUnits"
+            type="com.appolica.weatherify.android.preferences.units.PreferredUnits"/>
+
+        <variable
+            name="isCurrentLocation"
+            type="boolean"/>
+
+    </data>
+
+    <com.appolica.weatherify.android.ui.view.swiperemovervlayout.SwipeRemoveLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        app:removable="@{!isCurrentLocation}"
+        app:swipeListener="@{swipeListener}">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@id/swipeableElement"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/favourites_swipe_item_background">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"
+                tools:layout_editor_absoluteY="25dp"
+                tools:layout_editor_absoluteX="186dp" />
+
+            <TextView
+                fontPath="fonts/OpenSans-Light.ttf"
+                android:id="@+id/textViewFavCurrentTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{StringUtils.getCurrentTemperatureString(context, location.forecast, preferredUnits.temperatureUnit)}"
+                android:textSize="@dimen/favouritesTempFontSize"
+                tools:temperatureColor="@{location.forecast.currently.temperature}"
+                tools:text="12\u00B0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                fontPath="fonts/OpenSans-Light.ttf"
+                android:id="@+id/textViewFavCurrentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{StringUtils.getFavouritesTimeString(context, location.forecast.currently.time, location.forecast.timezone)}"
+                android:textSize="@dimen/favouritesTimeFontSize"
+                tools:text="12:00"
+                android:textColor="@color/favouritesItemTimeViewColor"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="@+id/textViewFavCity"
+                android:layout_marginBottom="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/textViewFavCity"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/textViewFavCity"
+                fontPath="fonts/OpenSans-Regular.ttf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@{location.name}"
+                tools:text="Very large city name goes here, really long one"
+                android:textColor="@color/favouritesItemTextViewColor"
+                android:textSize="@dimen/favouritesNameFontSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/textViewFavCurrentTemperature"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/imageViewFavCurrentLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/current_location_list"
+                android:visibility="@{isCurrentLocation ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintTop_toTopOf="@+id/textViewFavCurrentTime"
+                android:layout_marginTop="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewFavCurrentTime"
+                android:layout_marginBottom="0dp"
+                app:layout_constraintLeft_toRightOf="@+id/textViewFavCurrentTime"
+                android:layout_marginLeft="8dp" />
+
+        </android.support.constraint.ConstraintLayout>
+    </com.appolica.weatherify.android.ui.view.swiperemovervlayout.SwipeRemoveLayout>
+</layout>

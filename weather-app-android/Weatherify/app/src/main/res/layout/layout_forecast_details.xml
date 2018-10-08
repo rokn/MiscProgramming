@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:details="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.appolica.weatherify.android.R"/>
+
+        <variable
+            name="detailsModel"
+            type="com.appolica.weatherify.android.ui.fragment.DetailedForecastViewModel"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <include
+            android:id="@+id/humidity_item"
+            style="@style/detailsGridItems"
+            layout="@layout/layout_forecast_details_item"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            details:icon="@{R.drawable.layer_list_humidity}"
+            details:imageLayersDisabled="@{true}"
+            details:title="@{@string/humidity_label}"
+            details:value="@{detailsModel.humidityValue}"/>
+
+        <include
+            android:id="@+id/precipitation_item"
+            style="@style/detailsGridItems"
+            layout="@layout/layout_forecast_details_item"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            details:icon="@{R.drawable.layer_list_precipitation}"
+            details:title="@{@string/precipitation_label}"
+            details:value="@{detailsModel.precipitationValue}"/>
+
+        <include
+            android:id="@+id/details_divider_1"
+            layout="@layout/layout_horizontal_divider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/humidity_item"/>
+
+        <include
+            android:id="@+id/visibility_item"
+            style="@style/detailsGridItems"
+            layout="@layout/layout_forecast_details_item"
+            app:imageLayersDisabled="@{true}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/details_divider_1"
+            details:icon="@{R.drawable.ic_visibility}"
+            details:title="@{@string/visibility_label}"
+            details:value="@{detailsModel.visibilityValue}"/>
+
+        <include
+            android:id="@+id/wind_speed_item"
+            style="@style/detailsGridItems"
+            layout="@layout/layout_forecast_details_item"
+            app:imageLayersDisabled="@{false}"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_divider_1"
+            details:icon="@{R.drawable.wind_animated}"
+            details:title="@{@string/wind_label}"
+            details:value="@{detailsModel.windSpeedValue}"/>
+
+        <include
+            android:id="@+id/details_divider_2"
+            layout="@layout/layout_horizontal_divider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/visibility_item"/>
+
+        <include
+            android:id="@+id/pressure_item"
+            style="@style/detailsGridItems"
+            layout="@layout/layout_forecast_details_item"
+            app:imageLayersDisabled="@{true}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/details_divider_2"
+            details:icon="@{R.drawable.ic_pressure}"
+            details:title="@{@string/pressure_label}"
+            details:value="@{detailsModel.pressureValue}"/>
+
+        <include
+            android:id="@+id/cloud_cover_item"
+            style="@style/detailsGridItems"
+            layout="@layout/layout_forecast_details_item"
+            app:imageLayersDisabled="@{true}"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_divider_2"
+            details:icon="@{R.drawable.ic_cloud_cover}"
+            details:title="@{@string/cloud_cover_label}"
+            details:value="@{detailsModel.cloudCoverValue}"/>
+
+        <include
+            android:id="@+id/details_divider_3"
+            layout="@layout/layout_horizontal_divider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pressure_item"/>
+
+        <include
+            android:id="@+id/details_timearc"
+            layout="@layout/layout_forecast_details_timearc"
+            android:layout_width="0dp"
+            android:layout_height="126dp"
+            app:detailsModel="@{detailsModel}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_divider_3"/>
+
+        <include
+            android:id="@+id/details_divider_4"
+            layout="@layout/layout_horizontal_divider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_timearc"/>
+
+        <TextView
+            style="@style/mainScreenText.Big.Summary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="@{detailsModel.hourlySummary}"
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_divider_4"
+            tools:text="@string/lorem_ipsum"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

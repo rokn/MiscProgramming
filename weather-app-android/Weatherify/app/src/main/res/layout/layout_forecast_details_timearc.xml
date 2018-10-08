@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detailsModel"
+            type="com.appolica.weatherify.android.ui.fragment.DetailedForecastViewModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="8dp"
+            android:text="@{detailsModel.timeArcModel.time}"
+            android:textColor="@{detailsModel.timeArcModel.timeColor}"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/orbitingView"
+            app:layout_constraintLeft_toLeftOf="@+id/orbitingView"
+            app:layout_constraintRight_toRightOf="@+id/orbitingView"
+            tools:text="14:59"/>
+
+        <TextView
+            android:id="@+id/textViewSunrise"
+            style="@style/mainScreenText.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{detailsModel.timeArcModel.leftLabel}"
+            app:layout_constraintBottom_toTopOf="@+id/textViewSunriseTime"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_constraintBottom_creator="1"/>
+
+        <TextView
+            android:id="@+id/textViewSunriseTime"
+            style="@style/mainScreenText"
+            fontPath="fonts/OpenSans-Light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{detailsModel.timeArcModel.leftTime}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/textViewSunrise"
+            tools:layout_constraintBottom_creator="1"
+            tools:text="6:45 AM"/>
+
+        <com.appolica.weatherify.android.ui.view.layerimageview.LayeredImageView
+            android:id="@+id/imageViewTimeArc"
+            android:layout_width="114dp"
+            android:layout_height="37dp"
+            android:visibility="visible"
+            app:drawer="@{detailsModel.timeArcModel.arcLayer}"
+            app:layersDisabled="@{false}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1"/>
+
+        <TextView
+            android:id="@+id/textViewSundown"
+            style="@style/mainScreenText.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@{detailsModel.timeArcModel.rightLabel}"
+            app:layout_constraintBottom_toTopOf="@+id/textViewSundownTime"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintBottom_creator="1"/>
+
+        <TextView
+            android:id="@+id/textViewSundownTime"
+            style="@style/mainScreenText"
+            fontPath="fonts/OpenSans-Light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@{detailsModel.timeArcModel.rightTime}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/textViewSundown"
+            tools:layout_constraintBottom_creator="1"
+            tools:text="19:45 PM"/>
+
+        <ImageView
+            android:id="@+id/orbitingView"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:scaleType="centerInside"
+            android:src="@{detailsModel.timeArcModel.orbitingResId}"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewRise"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="@+id/imageViewRise"
+            app:layout_constraintRight_toRightOf="@+id/imageViewRise"
+            app:layout_constraintTop_toTopOf="@+id/imageViewRise"/>
+
+        <ImageView
+            android:id="@+id/imageViewRise"
+            android:layout_width="29dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/sunrise_dayly_empty"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewTimeArc"
+            app:layout_constraintRight_toLeftOf="@+id/imageViewTimeArc"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewTimeArc"/>
+
+        <ImageView
+            android:id="@+id/imageViewDown"
+            android:layout_width="29dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/sundown_dayly_empty"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewTimeArc"
+            app:layout_constraintLeft_toRightOf="@+id/imageViewTimeArc"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewTimeArc"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

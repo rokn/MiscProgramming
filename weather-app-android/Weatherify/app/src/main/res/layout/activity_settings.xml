@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.appolica.weatherify.android.R"/>
+
+        <import type="java.util.ArrayList"/>
+
+        <import type="java.lang.String"/>
+
+        <import type="com.appolica.weatherify.android.ui.activity.settings.SettingsClickListener"/>
+
+        <import type="com.appolica.weatherify.android.ui.activity.settings.BaseToggleSwitchAdapterListener"/>
+
+        <variable
+            name="windLabels"
+            type="ArrayList&lt;String&gt;"/>
+
+        <variable
+            name="temperatureLabels"
+            type="ArrayList&lt;String&gt;"/>
+
+        <variable
+            name="version"
+            type="String"/>
+
+        <variable
+            name="clickListener"
+            type="SettingsClickListener"/>
+
+        <variable
+            name="temperatureSwitchListener"
+            type="BaseToggleSwitchAdapterListener"/>
+
+        <variable
+            name="windSwitchListener"
+            type="BaseToggleSwitchAdapterListener"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:context="com.appolica.weatherify.android.ui.activity.settings.SettingsActivity">
+
+        <ImageView
+            android:id="@+id/settingsCloseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> clickListener.onCloseClick()}"
+            android:paddingStart="@dimen/top_buttons_side_padding"
+            android:paddingTop="@dimen/top_buttons_top_padding"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/close_button_settings"/>
+
+        <TextView
+            android:id="@+id/textViewSettingsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/settingsActivityTitle"
+            android:textColor="@color/settingsTextBlue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/settingsCloseButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/textViewSettingsUnits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="27dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/settingsUnits"
+            android:textColor="@color/settingsTextBlue"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsCloseButton"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/settings_section_background"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSettingsUnits">
+
+            <TextView
+                android:id="@+id/textViewTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/settingsTemperature"
+                android:textColor="@color/settingsSwitchLabelText"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+                android:id="@+id/toggleSwitchTemperature"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/white"
+                android:textSize="21sp"
+                app:activeBgColor="@color/settingsSwitchActiveBg"
+                app:activeTextColor="@color/settingsSwitchActiveText"
+                app:inactiveBgColor="@color/settingsSwitchInactiveBg"
+                app:inactiveTextColor="@color/settingsSwitchInactiveText"
+                app:labels="@{temperatureLabels}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTemperature"
+                app:onToggleSwitchChangeListener="@{temperatureSwitchListener}"
+                app:toggleWidth="0dp"/>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/settingsBorder"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toggleSwitchTemperature"/>
+
+            <TextView
+                android:id="@+id/textViewWind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:text="@string/settingsWind"
+                android:textColor="@color/settingsSwitchLabelText"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view2"/>
+
+            <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+                android:id="@+id/toggleSwitchWind"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="26dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="23dp"
+                android:background="@android:color/white"
+                android:textSize="16sp"
+                app:activeBgColor="@color/settingsSwitchActiveBg"
+                app:activeTextColor="@color/settingsSwitchActiveText"
+                app:inactiveBgColor="@color/settingsSwitchInactiveBg"
+                app:inactiveTextColor="@color/settingsSwitchInactiveText"
+                app:labels="@{windLabels}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWind"
+                app:onToggleSwitchChangeListener="@{windSwitchListener}"
+                app:separatorColor='@android:color/transparent'
+                app:toggleWidth="0dp"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textViewVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/labeledVersion(@string/versionName)}"
+            android:textColor="@color/settingsTextVersion"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.83"/>
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/removeAdsRippleHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="@{() -> clickListener.onRemoveAdsClick()}"
+            android:padding="10dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewVersion"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:mrl_rippleAlpha="0.3"
+            app:mrl_rippleColor="@color/settingsRippleBlue"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/textViewRemoveAds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/settingsRemoveAds"
+                android:textAllCaps="true"
+                android:textColor="@color/colorSettingsButtonText"/>
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/restorePurchasesRippleHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="@{() -> clickListener.onRestorePurchasesClick()}"
+            android:padding="10dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/removeAdsRippleHolder"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleColor="@color/settingsRippleBlue"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/textViewRestorePurchases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/settingsRestorePurchases"
+                android:textAllCaps="true"
+                android:textColor="@color/colorSettingsButtonText"/>
+        </com.balysv.materialripple.MaterialRippleLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

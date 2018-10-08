@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animator xmlns:android="http://schemas.android.com/apk/res/android"
+          android:duration="@integer/sunExitAnimationsDuration"
+          android:interpolator="@android:anim/anticipate_interpolator"
+          android:startOffset="@integer/sunExitAnimationsDuration"
+          android:valueFrom="0"
+          android:valueTo="50dp"
+          android:valueType="floatType"/>

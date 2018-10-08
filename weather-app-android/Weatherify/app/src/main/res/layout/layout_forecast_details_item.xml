@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String"/>
+
+        <variable
+            name="value"
+            type="String"/>
+
+        <variable
+            name="icon"
+            type="int"/>
+
+        <variable
+            name="imageLayersDisabled"
+            type="boolean"/>
+
+        <variable
+            name="animationProvider"
+            type="com.appolica.weatherify.android.ui.adapter.BindingAdapters.AnimationProvider"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="20dp"/>
+
+        <ImageView
+            android:id="@+id/details_image"
+            android:layout_width="48dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@{icon}"/>
+
+        <TextView
+            android:id="@+id/details_description"
+            style="@style/mainScreenText.Big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginStart="@dimen/detail_item_icon_end_margin"
+            android:text="@{title}"
+            app:layout_constraintBottom_toTopOf="@+id/textView5"
+            app:layout_constraintLeft_toRightOf="@+id/details_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Humidity"/>
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/mainScreenText.Big"
+            fontPath="fonts/OpenSans-Light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/detail_item_icon_end_margin"
+            android:text='@{value + ""}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/details_image"
+            app:layout_constraintTop_toBottomOf="@+id/details_description"
+            tools:text="24%pg"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

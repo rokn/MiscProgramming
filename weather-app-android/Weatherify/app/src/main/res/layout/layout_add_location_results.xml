@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="layoutManager"
+            type="android.support.v7.widget.LinearLayoutManager"/>
+
+        <variable
+            name="layoutAdapter"
+            type="android.support.v7.widget.RecyclerView.Adapter"/>
+
+        <variable
+            name="itemDecoration"
+            type="com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration"/>
+    </data>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/result_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/addLocationItemsBackground"
+        app:adapter="@{layoutAdapter}"
+        app:itemDecoration="@{itemDecoration}"
+        app:layoutManager="@{layoutManager}">
+    </android.support.v7.widget.RecyclerView>
+</layout>

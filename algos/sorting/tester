@@ -1,0 +1,45 @@
+#!/bin/bash
+
+EXEC="./$1"
+TEST_FOLDER="tests"
+OUT_FILE=".out"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+echo "Starting tests..."
+
+check_success() {
+	desired_file=$1
+	if [ -f $desired_file ]; then
+		cmp --silent $OUT_FILE $desired_file
+		if [ $? -eq "0" ]; then
+			return 1
+		else
+			return 0
+		fi
+	else
+		return 0
+	fi
+}
+
+for input in $TEST_FOLDER/*.in; do
+	printf "Running test: $input"
+	$EXEC < $input > $OUT_FILE &
+	pid=$!
+	printf ": "
+	wait $pid
+	desired_file="${input%.*}.out"
+	check_success $desired_file
+	success=$?
+	if [ $success -eq "1" ]; then
+		printf "${GREEN}Success${NC}\n"
+	else
+		printf "${RED}Failed${NC}\n"
+	fi
+done
+
+if [ -f $OUT_FILE ]; then
+	rm $OUT_FILE
+fi

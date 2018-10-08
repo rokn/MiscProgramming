@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.appolica.weatherify.android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+
+    <application
+        android:name=".WeatherifyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/places_api_key"/>
+
+        <activity
+            android:name=".ui.activity.enablelocations.EnableLocationsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.EnableLocationsScreen"/>
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.favourites.FavouritesActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LightStatusBar"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+
+        <activity
+            android:name=".ui.activity.favourites.FavouritesActivityWithAnimation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LightStatusBar.Transparent"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+
+        <activity
+            android:name=".ui.activity.addlocation.AddLocationActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LightStatusBar.Transparent"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+
+        <activity
+            android:name=".ui.activity.addlocation.AddLocationActivityWithAnimation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LightStatusBar.Transparent"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+
+        <activity
+            android:name=".ui.activity.settings.SettingsActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent"/>
+
+        <service
+            android:name=".service.LocationManagerService"
+            android:exported="false"/>
+
+        <service
+            android:name=".service.FetchForecastIntentService"
+            android:exported="false"/>
+
+        <service
+            android:name=".service.GCMService"
+            android:exported="true"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+
+    </application>
+</manifest>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.appolica.weatherify.android.utils.StringUtils"/>
+        <import type="com.appolica.weatherify.android.utils.TimeUtils"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="hourlyForecastModel"
+            type="com.appolica.weatherify.android.ui.adapter.HourForecastModel"/>
+
+        <variable
+            name="preferredUnits"
+            type="com.appolica.weatherify.android.preferences.units.PreferredUnits"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:background="@{TimeUtils.isToday(hourlyForecastModel.forecastData.time, hourlyForecastModel.timeZone) ? @color/mainScreenBackground : @color/mainScreenHourlyNextDayBackground}"
+        android:layout_width="55dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/mainScreenText.Xsmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{StringUtils.getWeekDay(hourlyForecastModel.forecastData.time)}"
+            android:visibility="@{TimeUtils.isMidnight(hourlyForecastModel.forecastData.time, hourlyForecastModel.timeZone) ? View.VISIBLE : View.INVISIBLE}"
+            android:textAllCaps="true"
+            tools:text="MONDAY"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="2dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/mainScreenText"
+            fontPath="fonts/OpenSans-Light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintHorizontal_bias="0.416"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="@{StringUtils.getHourlyTimeString(context, hourlyForecastModel.forecastData.time, hourlyForecastModel.timeZone)}"
+            android:textSize="@dimen/hourly_time_text_size"
+            tools:text="00:00" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="2dp"
+            android:src="@{hourlyForecastModel.forecastData.icon.outlineIconResourceId}"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            tools:src="@drawable/chances_of_rain_outlined" />
+
+        <TextView
+            android:id="@+id/textView10"
+            style="@style/mainScreenText.Big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="1dp"
+            android:text="@{StringUtils.getHourlyTemperatureString(context, hourlyForecastModel.forecastData.temperature, preferredUnits.temperatureUnit)}"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            tools:text="16 C"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="29dp"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="0dp" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
